@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
       rel="stylesheet"
     />
@@ -14,7 +18,10 @@
   </head>
   <body>
     <div class="calculator--body">
-      <div class="display--part">222</div>
+      <div class="display--part">
+        <div class="calc--eval">0</div>
+        <div class="display--value">0</div>
+      </div>
       <div class="keyboard--part">
         <div class="first--row">
           <div class="key key--clear" data-value="clear">clear</div>
@@ -34,7 +41,7 @@
           <div class="key key--8" data-value="8">8</div>
           <div class="key key--9" data-value="9">9</div>
           <div class="key key--mul" data-value="mul">*</div>
-          <div class="key key--dot" data-value="dot">.</div>
+          <div class="key key--dot" data-value=".">.</div>
           <div class="key key--0" data-value="0">0</div>
           <div class="key key--equal" data-value="equal">=</div>
           <div class="key key--divide" data-value="divide">/</div>
