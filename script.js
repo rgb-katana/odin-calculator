@@ -26,14 +26,23 @@ function updateArray(isWaiting) {
 }
 
 function deleteOne(number) {
-  if (happenedOnce) {
+  if (!number) {
+    operationArray.length = 2;
+    displaySegment.textContent = '0';
+    updateArray(isWaitingForSecond);
+  } else if (happenedOnce) {
+    updateArray(isWaitingForSecond);
     return;
   } else {
-    if (number === '') return;
-    else if (number.length === 1) displaySegment.textContent = '';
+    if (number === '') {
+      displaySegment.textContent = '0';
+      updateArray(isWaitingForSecond);
+      return;
+    } else if (number.length === 1) displaySegment.textContent = '0';
     else {
       displaySegment.textContent = number.slice(0, -1);
     }
+    updateArray(isWaitingForSecond);
   }
 }
 
@@ -120,6 +129,17 @@ function doCalculation(opArr) {
   }
 }
 
+function changeSign() {
+  console.log(operationArray);
+  if (operationArray.length === 1) {
+    operationArray[0] = -operationArray[0];
+    displaySegment.textContent = operationArray[0].toString();
+  } else if (operationArray.length === 3) {
+    operationArray[2] = -operationArray[2];
+    displaySegment.textContent = operationArray[2].toString();
+  }
+}
+
 keyboard.addEventListener('click', function (e) {
   const value = e.target.dataset.value;
   const currentNumber = displaySegment.textContent;
@@ -135,11 +155,13 @@ keyboard.addEventListener('click', function (e) {
     happenedOnce = false;
     displayOperator(value);
   } else {
+    if (value === 'sign') {
+      changeSign();
+    }
     if (value === 'clear') {
       clearAll();
     } else if (value === 'delete') {
       deleteOne(currentNumber);
-      updateArray(isWaitingForSecond);
     } else if (/[0-9\.]/.test(value)) {
       if (currentNumber.length === 15) return;
       displayNumber(value, currentNumber, isWaitingForSecond);
