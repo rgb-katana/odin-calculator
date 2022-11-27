@@ -68,7 +68,7 @@ body {
   height: 15%;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   column-gap: 5px;
   margin-bottom: 10px;
 }
@@ -88,4 +88,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.key--equal {
+  background-color: rgb(73, 143, 73);
+}
+
+.key--plus,
+.key--minus,
+.key--mul,
+.key--divide {
+  background-color: chocolate;
+}
+
+.darken {
+  opacity: 70%;
 }
